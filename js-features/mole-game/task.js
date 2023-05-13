@@ -1,27 +1,29 @@
 const dead = document.getElementById('dead');
 const lost = document.getElementById('lost');
 
-getHole = (index) => document.getElementById(hole$,{index});
-for (index = 1; index < 10; index++) {
-    let hole = getHole(index);
-    return hole;
-}
+getHole = (index) => document.getElementById(`hole${index}`);
 
-hole.onclick = function() {
-    if (hole.classList.contains( 'hole_has-mole' )) {
-        dead.textContent++;  
+
+for (let index = 1; index <= 9; index++) {
+getHole(index).onclick = function() {
+    if (getHole(index).className.includes('hole_has-mole')) {
+       dead.textContent++;  
     } else {
-        lost.textContent++;
+       lost.textContent++;
     }
-}
 
-if (dead.textContent >= 10) {
-    alert("Победа!");
-    lost.textContent = 0;
-}
 
-if (lost.textContent >= 5) {
-    alert("Вы проиграли");
-    lost.textContent = 0;
+    if (dead.textContent >= 10) {
+      alert("Победа!");
+      dead.textContent = 0;
+      lost.textContent = 0;
+    }
+
+    if (lost.textContent == 5) {
+      alert("Вы проиграли!");
+      dead.textContent = 0;
+      lost.textContent = 0;
+    }
+  }
 }
 
