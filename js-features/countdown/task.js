@@ -1,9 +1,12 @@
-const timers = function() {
+const timerFunc = function() {
   const timer = document.getElementById('timer');
-  timer.textContent--;
-  if (timer.textContent <=0) {
+  timer.textContent --;
+  if (timer.textContent <= 0) {
+    timer.textContent = 0;
     alert("Вы победили в конкурсе!");
+    clearInterval(intervalId);
   }
   }
 
-setInterval(timers,1000)
+const intetvalId = setInterval(timerFunc, 1000);
+
