@@ -9,6 +9,6 @@ for (let i = 0; i < item.length; i++) {
   item[i].onclick = function() {
     list.classList.remove('dropdown__list_active');
     dValue.textContent = item[i].textContent;
+    return false;
 }
-  continue;
 }
