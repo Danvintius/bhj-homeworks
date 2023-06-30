@@ -27,3 +27,4 @@ tabs[2].onclick = function() {
     contents[1].classList.remove('tab__content_active');
     contents[0].classList.remove('tab__content_active');
   }
+

@@ -5,6 +5,5 @@ textarea.oninput = function() {
     localStorage.setItem('value', value)
 }
 
-
 const storedText = localStorage.getItem('value');
 textarea.value = storedText;
