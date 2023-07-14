@@ -1,4 +1,3 @@
-/* let signin = document.getElementById('signin__btn')*/
 const signin = document.getElementById("signin");
 const signinForm = document.getElementById("signin__form");
 const welcome = document.getElementsByClassName("welcome");
@@ -7,9 +6,6 @@ const spanId = document.getElementById("user_id");
 const invocation = new XMLHttpRequest();
 const url = 'https://students.netoservices.ru/nestjs-backend/auth/';
 
-// signin.onclick = function() {
- //   
-//}
 function showUser() {
     signin.classList.remove("signin_active");
     welcome[0].classList.add("welcome_active");
@@ -24,7 +20,7 @@ function showUser() {
     signOut.addEventListener("click", () => {
        welcome[0].classList.remove("welcome_active");
        signin.classList.add("signin_active");
-       // signOut.style.display = "none";
+       signOut.style.display = "none";
        signinForm.reset();
        delete localStorage.user_id;
     })
@@ -39,8 +35,6 @@ function showUser() {
        const formData = new FormData(signinForm);
        xhr.open("POST", url);
        xhr.send(formData);
-       // const response = JSON.parse(xhr.responseText);
-       // console.log(response)
        xhr.responseType = "json";
        xhr.addEventListener("load", () => {
           if (xhr.response.success) {
