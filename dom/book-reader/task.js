@@ -1,30 +1,25 @@
-const book = document.querySelector('.book');
-const small = document.querySelector('.font-size_small');
-const big = document.querySelector('.font-size_big');
-const font = document.querySelectorAll('.font-size');
-/*
-for (let i = 0; i < font.length; i++) {
-    font[i].onclick = function() {
-      font[i].classList.add('font-size_active');
-      if (font[i] == small) {
-        book.classList.add('book_fs-small');
-      } else if (font[i] == big) {
-        book.classList.add('book_fs-big');
-      }
-      return false;
-    }   
-}*/
+const bookControl= document.querySelector(".book");
+const books = Array.from(document.querySelectorAll(".font-size"))
 
-small.onclick = function() {
-  small.classList.add('font-size_active');
-  book.classList.add('book_fs-small');
-  big.classList.remove('font-size_active');
-  return false;
+
+const fontsizeChange = function(event){
+   let index = books.findIndex((book) =>
+   book.classList.contains("font-size_active"));
+   let target = event.target;
+   event.preventDefault();
+
+books[index].classList.remove("font-size_active");
+target.classList.toggle("font-size_active");
+
+if (target.classList.contains("font-size_small")){
+   bookControl.classList.remove("book_fs-big");
+   bookControl.classList.add("book_fs-small");   
+} else if (target.classList.contains("font-size_big")){
+   bookControl.classList.remove("book_fs-small");
+   bookControl.classList.add("book_fs-big");
+} else {
+   bookControl.classList.remove("book_fs-small", "book_fs-big"); 
+}
 }
 
-big.onclick = function() {
-  big.classList.add('font-size_active');
-  book.classList.add('book_fs-big');
-  small.classList.remove('font-size_active');
-  return false;
-}
+bookControl.addEventListener("click", fontsizeChange)
