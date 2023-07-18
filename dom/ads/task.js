@@ -1,11 +1,19 @@
-let rotatorCase = document.querySelectorAll('.rotator__case')
+const rotators = document.querySelectorAll(".rotator__case");
+const rotatorMain = document.querySelector(".rotator");
+let interval = 1000;
 
-const rotation = function() {
-//    setTimeout(() => {
-        for (let i = 0; i < rotatorCase.length; i++) {
-    rotatorCase[i].classList.add('rotator__case_active');
-    rotatorCase[i].classList.remove('rotator__case_active');
-  }//, 1000);
+function rotation() {
+  setTimeout(() => {
+    for (let rot of rotators) {
+          if (rot.nextElementSibling === null) {
+        rotatorMain.firstElementChild.classList.add("rotator__case_active");
+        rot.classList.remove("rotator__case_active");
+      } else if (rot.classList.contains("rotator__case_active")) {
+       rot.nextElementSibling.classList.add("rotator__case_active");
+        rot.classList.remove("rotator__case_active");
+        break;
+      }
+    }
+  }, interval);
 }
-
-const intervalId = setInterval(rotation, 1000);
+setInterval(rotation, interval);
