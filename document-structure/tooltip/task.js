@@ -9,8 +9,8 @@ tooltips.forEach(tooltip => {
       elem.classList.add("tooltip");
       tooltip.insertAdjacentElement('beforeBegin', elem);
       elem.style.position = "absolute";
-      //elem.style.left = `${tooltip.getBoundingClientRect().left}px`;
-      //elem.style.top = `${tooltip.getBoundingClientRect().bottom}px`;
+      elem.style.left = `${tooltip.getBoundingClientRect().left}px`;
+      elem.style.top = `${tooltip.getBoundingClientRect().bottom}px`;
 
       const elems = Array.from(document.querySelectorAll(".tooltip_active"));
       const findElem = elems.find(elem => elem.classList.contains("tooltip_active"));
