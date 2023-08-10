@@ -16,6 +16,6 @@ button.addEventListener("click", (e) => {
         task[task.length - 1].addEventListener("click", () => {
            tasksList.removeChild(task[task.length - 1].closest(".task"));
         })
-        inputValue = '';
+        input.value = '';
      }
 })
