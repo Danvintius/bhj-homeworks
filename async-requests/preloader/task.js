@@ -1,8 +1,8 @@
 let valute;
-let valuteContainer = document.getElementById('items');
-let loader = document.getElementById('loader');
+const valuteContainer = document.getElementById('items');
+const loader = document.getElementById('loader');
 
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/slow-get-courses');
 xhr.responseType = "json";
 xhr.send();
@@ -16,10 +16,10 @@ xhr.onreadystatechange = function () {
 
     loader.classList.toggle('loader_active');
 
-    for (let valuteItem of valute) {
+    for (let valuteItem in valute) {
         valuteContainer.insertAdjacentHTML("afterBegin",
-        `<div class="item__code">${valuteItem.CharCode}</div>
-        <div class="item__value">${valuteItem.Value}</div>
+        `<div class="item__code">${valute[valuteItem]["CharCode"]}</div>
+        <div class="item__value">${valute[valuteItem]["Value"]}</div>
         <div class="item__currency">руб.</div>`);
     }
 }

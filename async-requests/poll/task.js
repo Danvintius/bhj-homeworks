@@ -1,7 +1,7 @@
-let pollTitle = document.getElementById("poll__title");
-let pollAnswers = document.getElementById("poll__answers");
+const pollTitle = document.getElementById('poll__title');
+const pollAnswers = document.getElementById('poll__answers');
 
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/poll');
 xhr.responseType = "json";
 xhr.send();
